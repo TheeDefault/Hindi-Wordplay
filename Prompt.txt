@@ -1,0 +1,208 @@
+Delimited by double quotation is the clustering of hindi alphabet based on how similar they sound
+"{
+"Clusters_type_1" : [
+["इ", "ई"],
+["उ", "ऊ"],
+["क", "ख", "ग", "घ"],
+["च", "छ", "ज", "झ"],
+["ट", "ठ", "ड", "ढ"],
+["त", "थ", "द", "ध",],
+["प", "फ", "ब", "भ"],
+["ङ","ञ","ण","न","अं"],
+["श", "ष", "स"]
+]
+"Clusters_type_2" : [
+["अ", "आ"],
+["ए", "ऐ"],
+["ओ", "औ"]
+]
+}"
+Clusters_type_1 consist of clusters of very similar sounding alphabets, Cluster_type_2 consist of clusters of alphabets with noticable similarities.
+
+Hindi_rhyme_logic = "Priority of rhyming has been classified as follows :
+1. Perfect Rhyme : High Priority, ending characters of words are direct match
+Example : प्रवर्तन - परिवर्तन (वर्तन is the rhyme phrase), अधिकार - व्यवहार (आर is the rhyming phrase)
+2. Slant Rhyme: Has 2 categories -
+	category 1 : Matches ending alphabets from Cluster_type_1, Has very similar sound, Medium Priority
+	Example : मित्रता - संस्था (ता/था is the rhyme phrase), भालू - सुलु (आलू/अलु is the rhyme phrase)
+	categoty 2 : Matches ending  alphabets from Cluster_type_2, Less similar sound, Low Priority
+	Example : से - है (ए/ऐ is the rhyme phrase)"
+
+Yout task is to generate a (Verse/poem/couplet/song) in hindi language which focuses on (leveraging/maximizing) sound devices per words of the (Verse/poem/couplet/song) following the rules listed below which are delimited by single quotation using the Hindi_rhyme_logic.
+
+rules = '1. Maintain a syllabic count pattern :
+Follow the following Algorithm Delimited by triple quotation (''') to find syllabic count of a sentence-
+
+'''Unstressed_syllables : ["अ", "इ", "उ", "अँ"]
+Stressed_syllables : ["आ", "ई", "ऊ", "ऋ", "ए", "ऐ", "ओ", "औ", "अः"]
+
+Declare a variable syllabic_count = 0
+
+For each Unstressed_syllables occurence in a sentences, increase syllabic_count by 1.
+For each Stressed_syllables occurence in a sentences, increase syllabic_count by 2.'''
+
+Maintaing a specific pattern like 16 per line, 13 and 11 alternating per line, etc.
+Examples:
+Doha (follows a 13-11-13-11 pattern):
+'पवनतनय संकट हरन, मंगल मूरति रूप।
+राम लखन सीता सहित, हृदय बसहु सुर भूप।।'
+– Shri Hanuman Chalisa
+
+Chopai (follows 16 syllables per line):
+'जय हनुमान ज्ञान गुन सागर। जय कपीस तिहुं लोक उजागर।।
+राम दूत अतुलित बल धामा। अंजनि-पुत्र पवनसुत नामा।।'
+– Shri Hanuman Chalisa
+	
+2. Maintain a rhyme scheme : 
+Maintain a rhyme scheme of (AAAA, AABB, ABAB, ABAC, ABCB) while bearing flexibility for Hindi_rhyme_logic.
+
+3. Maximize usage of following Sound Devices for Maximizing Intra Sentence Wordplay :
+i. Aliteration :
+Alter the Hindi_rhyme_logic, changing its use for ending alphabets to starting alphabets
+Example : "चारु चन्द्र की चंचल किरणें खेल रही थी जल थल में।"
+Here "च" is used repeatedily in words चारु and चन्द्र, therefore "च" is used for aliteration.
+
+ii. Middle Rhyme :
+Occurence of rhyming word can be used in middle of two different sentences, Use it to your advantage.
+Example : 
+"मैं खड़ा था, अंधी के साथ आ रहा था सैलाब
+परिस्थितियों से लड़ा डट कर, जगा तो निकला ख्वाब"
+सैलाब - ख्वाब are rhyming words at the end; खड़ा - लड़ा are rhyming word in the middle of sentence thus are words for middle rhyme, similar logic can be applied for staring rhyme.
+
+iii. Consonance :
+Matching consonants among words.
+Example : खल - खेल
+Here, ख and ल are common consonants, but vowels vary.
+Clusters_type_1 Consonants may be used for flexibility.
+
+iv. Asonance :
+Matching vowels among words.
+Exmaple : सफेद - फरेब
+Here, अ, ए, अ are common vowels in same sequence, but Consonants vary.
+Clusters_type_1 Consonants may be used for flexibility.
+
+4. Maximizing puns throughout paragraph
+Example : 'रहिमन पानी राखिए, बिन पानी सब सून। पानी गए न ऊबरे, मोती, मानुष, चून'
+– Abdul Rahim Khankhana
+
+word पानी at different times give different meaning, here, it is Dignity, Pearl and Water depending on context.
+
+5. Utilizing Vowels conjuction (especially Yann Sandhi and Ayadi Sandhi) for Intra sentence wordplay or rhymscheme
+Delimited by double quotation are the rules of vowel conjuction or Swar Sandhi
+
+"
+Here vowel_x is any vowel from Hindi alphabet which if provided in the array name vowel_cluster
+
+vowel_cluster = = ["अ", "आ", "इ", "ई", "उ", "ऊ", "ऋ", "ॠ", "ऌ", "ॡ", "ए", "ऐ", "ओ", "औ", "अं", "अः"]
+
+Let vowel_x be any element belonging to vowel_cluster.
+
+Given below are the rules of Yann Sandhi followed by Examples
+Yann Sandhi -
+इ/ई + vowel_x = य् + vowel_x
+Example -
+(इ + अ = य् + अ) यदि + अपि = यद्यपि ।
+(ई + आ = य् + आ) इति + आदि = इत्यादि ।
+(ई + अ = य् + अ) नदी + अर्पण = नद्यर्पण ।
+(ई + आ = य् + आ) देवी + आगमन = देव्यागमन ।
+
+उ/ऊ + vowel_x  = व् + vowel_x
+Example -
+(उ + अ = व् + अ) अनु + अय = अन्वय ।
+(उ + आ = व् + आ) सु + आगत = स्वागत ।
+(उ + ए = व् + ए) अनु + एषण = अन्वेषण ।
+
+ऋ + vowel_x = र् + vowel_x
+Example -
+(ऋ + अ = र् + आ) पितृ + आज्ञा = पित्राज्ञा ।
+
+Given below are the rules of Ayadi Sandhi
+Ayadi Sandhi -
+ए + vowel_x = अय् + vowel_x
+Example -
+(ए + अ = अय् + अ) ने + अन = नयन ।
+
+ऐ + vowel_x = आय् + vowel_x
+Example -
+(ऐ + अ = आय् + अ) गै + अक = गायक ।
+
+ओ + vowel_x = अव् + vowel_x
+Example -
+(ओ + अ = अव् + अ) पो + अन = पवन ।
+(औ + अ = आव् + अ) पौ + अक = पावक ।
+
+औ + vowel_x = आव् + vowel_x
+Example -
+(औ + इ = आव् + इ) नौ + इक = नाविक ।
+
+Given below are the rules of Dirgh Sandhi
+Dirgh Sandhi -
+अ/आ + अ/आ = आ
+Example -
+(अ + अ = आ) धर्म + अर्थ = धर्मार्थ ।
+(अ + आ = आ) हिम + आलय = हिमालय ।
+(आ + अ = आ) विद्या + अर्थी = विद्यार्थी ।
+(आ + आ = आ) विद्या + आलय = विद्यालय ।
+
+इ/ई + इ/ई = ई
+Example -
+(इ + इ = ई) रवि + इंद्र = रवींद्र, मुनि + इंद्र = मुनींद्र ।
+(इ + ई = ई) गिरि + ईश = गिरीश, मुनि + ईश = मुनीश ।
+(ई + इ = ई) मही + इंद्र = महींद्र, नारी + इंदु = नारींदु ।
+(ई + ई = ई) नदी + ईश = नदीश मही + ईश = महीश ।
+
+उ/ऊ + उ/ऊ = ऊ
+Example -
+(उ + उ = ऊ) भानु + उदय = भानूदय, विधु + उदय = विधूदय ।
+(उ + ऊ = ऊ) लघु + ऊर्मि = लघूर्मि, सिधु + ऊर्मि = सिंधूर्मि ।
+(ऊ + उ = ऊ) वधू + उत्सव = वधूत्सव, वधू + उल्लेख = वधूल्लेख ।
+(ऊ + ऊ = ऊ) भू + ऊर्ध्व = भूर्ध्व, वधू + ऊर्जा = वधूर्जा ।
+
+Given below are the rules of Gunn Sandhi
+Gunn Sandhi -
+अ/आ + इ/ई = ए
+Example -
+(अ + इ = ए) नर + इंद्र = नरेंद्र ।
+(अ + ई = ए) नर + ईश = नरेश ।
+(आ + इ = ए) महा + इंद्र = महेंद्र ।
+(आ + ई = ए) महा + ईश = महेश ।
+
+अ/आ + उ/ऊ = ओ
+Example -
+(अ + उ = ओ) ज्ञान + उपदेश = ज्ञानोपदेश ।
+(आ + उ = ओ) महा + उत्सव = महोत्सव ।
+(अ + ऊ = ओ) जल + ऊर्मि = जलोर्मि ।
+(आ + ऊ = ओ) महा + ऊर्मि = महोर्मि ।
+
+अ/आ + ऋ = अर
+Example -
+(अ + ऋ = अर्) देव + ऋषि = देवर्षि ।
+(आ + ऋ = अर्) महा + ऋषि = महर्षि ।
+
+Given below are the rules of Vridhi Sandhi
+Vridhi Sandhi -
+अ/आ + ए/ऐ = ऐ
+Example -
+(अ + ए = ऐ) एक + एक = एकैक ।
+(अ + ऐ = ऐ) मत + ऐक्य = मतैक्य ।
+(आ + ए = ऐ) सदा + एव = सदैव ।
+(आ + ऐ = ऐ) महा + ऐश्वर्य = महैश्वर्य ।
+
+अ/आ + ओ/औ = औ
+Example -
+(अ + ओ = औ) वन + ओषधि = वनौषधि ।
+(आ + ओ = औ) महा + औषधि = महौषधि ।
+(अ + औ = औ) परम + औषध = परमौषध ।
+(आ + औ = औ) महा + औषध = महौषध ।
+"
+
+By leveraging the Vowel conjuction, we can create multisyllabic rhymes which can span across the words.
+Example :
+"जानवर खाते कई अनाज  
+देखत हैं मेरे नयन आज"
+- Shashwat Parth Poddar
+
+here कई अनाज can be treated as कयनाज (as इ/ई + vowel_x = य् + vowel_x)
+and नयन आज can be treated as नयनाज (as अ/आ + अ/आ = आ)
+Rhyme is taking place across 2 words and 5 syllables
+'
